@@ -39,8 +39,8 @@ int BLYNK_PID_KD;
 //------------------------------------------------------------------------ 
 int16_t               altVoltage      = (400 * BAT_CELLS * ALT_CALIB_ADC) / ALT_CALIB_REAL_VOLTAGE;
 static int32_t        altVoltageFixdt = (400 * BAT_CELLS * ALT_CALIB_ADC) / ALT_CALIB_REAL_VOLTAGE << 16;  // Fixed-point filter output initialized at 400 V*100/cell = 4 V/cell converted to fixed-point
-extern uint32_t       adcAltValue;                                        // [ADC IN] Actual input signal    
-extern int16_t        voltageCalib;                                       // [V] Actual Voltage level.
+uint32_t       adcAltValue;                                        // [ADC IN] Actual input signal    
+int16_t        voltageCalib;                                       // [V] Actual Voltage level.
 int16_t               output;                                             // [PWM] Output Pwm to mosfet.
 
 //------------------------------------------------------------------------

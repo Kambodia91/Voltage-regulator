@@ -7,17 +7,13 @@
 #include "config.h"
 #include "setup.h"
 #include "voltageRegulator.h"
-#include "moveTracks.h"
-#include "sendCmd.h"
 
 //------------------------------------------------------------------------
 // main setup
 //------------------------------------------------------------------------ 
 void setup () {
   setupPlatform();  // installation of necessary things
-
-  setupSendCmd();
-  //VoltageRegulatorInit(); // installation of a voltage regulator
+  VoltageRegulatorInit(); // installation of a voltage regulator
 }
 
 //------------------------------------------------------------------------
@@ -25,10 +21,7 @@ void setup () {
 //------------------------------------------------------------------------ 
 void loop () {
   loopPlatform();   // installation of necessary things
-
-  loopTracks();
-  loopSendCmd();
-  //VoltageRegulatorCompiute();
+  VoltageRegulatorCompiute();
   
   //---Blink Led---//
   unsigned long timeNow = millis();

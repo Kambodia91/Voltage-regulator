@@ -6,8 +6,6 @@
 #include "setup.h"
 
 #include "voltageRegulator.h"
-#include "moveTracks.h"
-#include "sendCmd.h"
 
 #if defined(VARIANT_ESP32_S2)
 #include <BlynkSimpleEsp32.h>                      // [Blynk]
@@ -90,13 +88,6 @@ extern int BLYNK_PID_KP;
 extern int BLYNK_PID_KI;
 extern int BLYNK_PID_KD;
 
-extern int axisValueX;
-extern int axisValueY;
-
-
-extern bool enable;
-extern byte controlMode;
-
 //------------------------------------------------------------------------
 // variables
 //------------------------------------------------------------------------ 
@@ -126,8 +117,6 @@ uint8_t RealSecond;
 String DayOfWeak;
 uint8_t DayOfWeakNumber;
 
-int OutputLewa;
-int OutputPrawa;
 //------------------------------------------------------------------------
 // procedures serial setup
 //------------------------------------------------------------------------ 
@@ -280,7 +269,7 @@ void BlynkTerminal(int cmd) {
 //------------------------------------------------------------------------ 
 BLYNK_CONNECTED() {
   rtc.begin();                                                      // Synchronize time on connection.
-  Blynk.syncVirtual(V1, V2, V3, V5, V8);                           // Synchronizowanie Wartości z Aplikacji Blynk.
+  Blynk.syncVirtual(V1, V2, V3, V4);                           // Synchronizowanie Wartości z Aplikacji Blynk.
 
   //BlynkBridge.setAuthToken(bridge_token);                           // Token do ESP-Rolety_L923D.
 }
@@ -289,17 +278,7 @@ BLYNK_WRITE(V1) { BLYNK_SET_POINT = param.asInt(); }
 BLYNK_WRITE(V2) { BLYNK_PID_KP = param.asInt(); }
 BLYNK_WRITE(V3) { BLYNK_PID_KI = param.asInt(); }
 BLYNK_WRITE(V4) { BLYNK_PID_KD = param.asInt(); }
-BLYNK_WRITE(V8) { controlMode = param.asInt(); }      
-BLYNK_WRITE(V30) { axisValueX = param.asInt(); }
-BLYNK_WRITE(V31) { axisValueY = param.asInt(); }
 
-//BLYNK_WRITE(V6) { Out_Warm = param.asInt(); }                           // ON
-// BLYNK_WRITE(V7) { OFF = param.asInt(); }                          // OFF
-// BLYNK_WRITE(V8) { TOGGLE = param.asInt(); }                       // TOGGLE
-//BLYNK_WRITE(V9) { ButtonBlynkColor = param.asInt(); }                       // TOGGLE
-// BLYNK_WRITE(V10) { white_Warm = param.asInt(); }                     // Warm - Wykresy
-// BLYNK_WRITE(V11) { white_Cold = param.asInt(); }                     // Cold - Wykresy
-BLYNK_WRITE(V60) { enable = param.asInt(); } 
 //BLYNK_WRITE(V21) { = param.asInt(); }                             // BlynkBridge Pin.
 //BLYNK_WRITE(V100) { SpeedTest = 0;                                  // Przycisk w Aplikacji Blynk.
 //                 checkSpeedButton = param.asInt(); }

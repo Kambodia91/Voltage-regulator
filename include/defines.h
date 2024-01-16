@@ -38,15 +38,6 @@
 #define PWM_FREQ                5000                                // 5000hz.
 #define PWM_RES                 10                                  // 10bit.
 
-//-------------------------Send/Recived-Cmd-------------------------//
-
-#define HOVER_SERIAL_BAUD   115200      // [-] Baud rate for HoverSerial (used to communicate with the hoverboard)
-#define START_FRAME         0xABCD     	// [-] Start frme definition for reliable serial communication
-#define TIME_SEND           50          // [ms] Sending time interval
-#define PRINT_SERIAL_DATA
-// #define DEBUG_SERIAL_RX              // [-] Debug received data. Prints all bytes to serial (comment-out to disable)
-
-
 //---------------------------VOLTAGE REG----------------------------//
 // Kalibracja Napiecia
 #define ALT_FILT_COEF           655                                 // battery voltage filter coefficient in fixed-point. coef_fixedPoint = coef_floatingPoint * 2^16. In this case 655 = 0.01 * 2^16

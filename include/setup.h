@@ -28,6 +28,4 @@ void RealTimeClock();
 void setupPlatform();
 void loopPlatform();
 
-
-void controlTracks(int difference);
 #endif
