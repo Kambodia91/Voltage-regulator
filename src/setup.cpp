@@ -63,7 +63,7 @@
 WidgetTerminal Terminal(V0);
 BlynkTimer timer;   // Nazwa Timera Blynk.
 WidgetBridge BlynkBridge (blynk_bridge_pin);       // [Most]
-WidgetRTC rtc;
+//WidgetRTC rtc;
 #endif
 
 
@@ -268,7 +268,7 @@ void BlynkTerminal(int cmd) {
 // procedures blynk declaration virtual pin
 //------------------------------------------------------------------------ 
 BLYNK_CONNECTED() {
-  rtc.begin();                                                      // Synchronize time on connection.
+  //rtc.begin();                                                      // Synchronize time on connection.
   Blynk.syncVirtual(V1, V2, V3, V4);                           // Synchronizowanie Wartości z Aplikacji Blynk.
 
   //BlynkBridge.setAuthToken(bridge_token);                           // Token do ESP-Rolety_L923D.
