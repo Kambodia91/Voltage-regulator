@@ -6,12 +6,20 @@ More information in the [docs](/docs/).
 This is test software.!
 
 ---
-YOUTUBE:
+## YOUTUBE:
 - [Test Alternator](https://youtu.be/Kwqm5Uq0JIM?si=3kcveeOb6-9aURg2).
 
 ---
 
+## Connection diagram:
+
+-[Diagram Alternator](/docs/Diagram.png).
+
+-[Diagram Regulator](/docs/Diagram_Regulator.png).
+
+---
 ## Hardware
+The original winding connection was a double star as shown in this [document](/docs/Diody.jpg) To increase the voltage, I had to disconnect all the windings and connect them through Gretz bridges.
 I intend to use esp32 to control the alternator voltage, and N-type mosfets to control the magnetic field of the exciter via PWM
 
 ---
